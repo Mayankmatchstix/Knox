@@ -1,0 +1,233 @@
+KNOX - Configuring a Federation Provider JWT
+
+[root@c4755-node4 topologies]# cat cdp-proxy-api_bkp.xml
+<?xml version="1.0" encoding="utf-8"?>
+<!--==============================================-->
+<!-- DO NOT EDIT. This is an auto-generated file. -->
+<!--==============================================-->
+<topology>
+    <generated>true</generated>
+    <gateway>
+        <provider>
+            <role>federation</role>
+            <name>SSOCookieProvider</name>
+            <enabled>true</enabled>
+            <param>
+                <name>sso.authentication.provider.url</name>
+                <value>https://c4755-node4.coelab.cloudera.com:8443/gateway/knoxsso/api/v1/websso</value>
+            </param>
+        </provider>
+        <provider>
+            <role>identity-assertion</role>
+            <name>HadoopGroupProvider</name>
+            <enabled>true</enabled>
+            <param>
+                <name>CENTRAL_GROUP_CONFIG_PREFIX</name>
+                <value>gateway.group.config.</value>
+            </param>
+        </provider>
+        <provider>
+            <role>authorization</role>
+            <name>XASecurePDPKnox</name>
+            <enabled>true</enabled>
+        </provider>
+        <provider>
+            <role>ha</role>
+            <name>HaProvider</name>
+            <enabled>true</enabled>
+            <param>
+                <name>ATLAS-API</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>AVATICA</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>CM-API</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>CRUISE-CONTROL</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>DAS</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>HIVE</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>HUE</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>IMPALA</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>NAMENODE</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>NIFI</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>NIFI-REGISTRY</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>OOZIE</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>PROFILER-ADMIN-API</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>PROFILER-METRICS-API</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>PROFILER-SCHEDULER-API</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>RANGER</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>RESOURCEMANAGER</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>SCHEMA-REGISTRY</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>SMM-API</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>SOLR</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>WEBHBASE</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>WEBHDFS</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+            <param>
+                <name>ZEPPELINWS</name>
+                <value>enabled=true;maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000</value>
+            </param>
+        </provider>
+    </gateway>
+
+    <service>
+        <role>ATLAS-API</role>
+        <url>http://c4755-node4.coelab.cloudera.com:31000</url>
+    </service>
+
+    <service>
+        <role>CM-API</role>
+        <url>http://c4755-node1.coelab.cloudera.com:7180/api</url>
+        <param>
+            <name>httpclient.connectionTimeout</name>
+            <value>5m</value>
+        </param>
+        <param>
+            <name>httpclient.socketTimeout</name>
+            <value>5m</value>
+        </param>
+    </service>
+
+    <service>
+        <role>HIVE</role>
+        <url>http://c4755-node2.coelab.cloudera.com:10001/cliservice</url>
+        <param>
+            <name>httpclient.connectionTimeout</name>
+            <value>5m</value>
+        </param>
+        <param>
+            <name>httpclient.socketTimeout</name>
+            <value>5m</value>
+        </param>
+    </service>
+
+    <service>
+        <role>IMPALA</role>
+        <param>
+            <name>httpclient.connectionTimeout</name>
+            <value>5m</value>
+        </param>
+        <param>
+            <name>httpclient.socketTimeout</name>
+            <value>5m</value>
+        </param>
+    </service>
+
+    <service>
+        <role>NAMENODE</role>
+        <url>hdfs://c4755-node2.coelab.cloudera.com:8020</url>
+    </service>
+
+    <service>
+        <role>NIFI</role>
+        <param>
+            <name>useTwoWaySsl</name>
+            <value>true</value>
+        </param>
+    </service>
+
+    <service>
+        <role>NIFI-REGISTRY</role>
+        <param>
+            <name>useTwoWaySsl</name>
+            <value>true</value>
+        </param>
+    </service>
+
+    <service>
+        <role>RANGER</role>
+        <url>http://c4755-node4.coelab.cloudera.com:6080</url>
+        <param>
+            <name>replayBufferSize</name>
+            <value>65</value>
+        </param>
+    </service>
+
+    <service>
+        <role>RESOURCEMANAGER</role>
+        <url>http://c4755-node2.coelab.cloudera.com:8088/ws</url>
+    </service>
+
+    <service>
+        <role>RESOURCEMANAGERAPI</role>
+        <url>rpc://c4755-node2.coelab.cloudera.com:8032</url>
+    </service>
+
+    <service>
+        <role>SOLR</role>
+        <url>http://c4755-node2.coelab.cloudera.com:8993/solr/</url>
+    </service>
+
+    <service>
+        <role>WEBHDFS</role>
+        <url>http://c4755-node2.coelab.cloudera.com:9870/webhdfs</url>
+    </service>
+</topology>
+[root@c4755-node4 topologies]#
+
+
+HIVE JDBC - 
+
+curl -ivku thomas:hadoop12345! https://KNOX_HOSTNAME:8443/gateway/knoxsso/knoxtoken/api/v1/token -- to generate token
+
+beeline -u 'jdbc:hive2://c4755-node4.coelab.cloudera.com:8443/;ssl=true;transportMode=http;httpPath=gateway/cdp-proxy-api_bkp/hive;sslTrustStore=/var/lib/knox/gateway/data/security/keystores/gateway.jks;trustStorePassword=Chinna123@;http.cookie.hadoop-jwt=eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJwZXRlciIsImlzcyI6IktOT1hTU08iLCJleHAiOjE2MzAwNTg3OTksImtub3guaWQiOiI3ZmI5NWI1Ny00YzE0LTQ3NzEtYmRlNi1hMTMzMmZjN2FjOWYifQ.AAzBtmcqfrnMCHHvTSndOWrFN-XomERWg8bDOBXnmtNZrKh2y7QsRLaxW8lHKty8LHl59ylzgu4V86efAvUp9CEGhGFIeWAMu_pcSXrrQUenCLWlbJXzYSvtecpDk92D7qelzTrA0OA6vYL6v-upTPctnQ2d-ztMr3j1VZzqeiXyO8LhIKD9O9pIxKY5Amv2A5R4eWCNKxbhLPwFRB3aI-jPaC6x-elpm9TwNxJIVuzld8_kuLpTdmUdXVLPZ3MfElw97ecFSAldh2lyezNHkgHi99cM3hHrc-R09IEkwHX1UuvihDdaSk2sKPPrZI808ztqyFvURAZYToJTTu_n1Q'
